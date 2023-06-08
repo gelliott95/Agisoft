@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<batchjobs version="2.0.1" save_project="true">
+  <job name="BuildDenseCloud" target="all">
+    <reuse_depth>true</reuse_depth>
+  </job>
+  <job name="ClassifyGroundPoints" target="all">
+    <cell_size>30.480060960121925</cell_size>
+    <max_angle>17</max_angle>
+    <max_distance>1.5240030480060962</max_distance>
+  </job>
+  <job name="BuildDem" target="all">
+    <classes>2</classes>
+    <reuse_depth>true</reuse_depth>
+  </job>
+  <job name="BuildOrthomosaic" target="all">
+    <surface_data>4</surface_data>
+  </job>
+</batchjobs>
