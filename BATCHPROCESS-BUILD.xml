@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<batchjobs version="2.0.1" save_project="true">
-  <job name="BuildDenseCloud" target="all">
+<batchjobs version="2.0.2" save_project="true">
+  <job name="BuildPointCloud" target="all">
     <reuse_depth>true</reuse_depth>
   </job>
   <job name="ClassifyGroundPoints" target="all">
