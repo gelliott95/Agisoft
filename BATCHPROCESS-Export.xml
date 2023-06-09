@@ -1,20 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<batchjobs version="2.0.1">
-  <job name="BuildPointCloud" target="all">
-    <reuse_depth>true</reuse_depth>
-  </job>
-  <job name="ClassifyGroundPoints" target="all">
-    <cell_size>15</cell_size>
-    <max_distance>1.5</max_distance>
-  </job>
-  <job name="BuildDem" target="all">
-    <classes>2</classes>
-    <reuse_depth>true</reuse_depth>
-  </job>
-  <job name="BuildOrthomosaic" target="all">
-    <surface_data>4</surface_data>
-  </job>
-  <job name="ExportOrthomosaic" target="all">
+<batchjobs version="2.0.2">
+    <job name="ExportOrthomosaic" target="all">
     <image_format>2</image_format>
     <path>{projectfolder}\{projectname}-Ortho.tif</path>
     <resolution>0.15240000000000001</resolution>
