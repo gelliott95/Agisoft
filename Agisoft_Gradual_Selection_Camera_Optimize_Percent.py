@@ -2,7 +2,7 @@ import Metashape
 import sys
 
 """
-Metashape Sparse Point Cloud Filter Script (v 1.5)
+Metashape Sparse Point Cloud Filter Script (v 2.0)
 Matjaz Mori, CPA, June 2019
 Adapted to include optimize camera alignment -Grant Elliott, Aug 2020
 Usage:
@@ -58,8 +58,8 @@ fit_b2=float(sys.argv[17] if paramNo == 5 else def_fit_b2)
 
 
 for chunk in Metashape.app.document.chunks:
-    f = Metashape.PointCloud.Filter()
-    f.init(chunk,Metashape.PointCloud.Filter.ReconstructionUncertainty)
+    f = Metashape.TiePoints.Filter()
+    f.init(chunk,Metashape.TiePoints.Filter.ReconstructionUncertainty)
     f.removePoints(recunc)
     
     
@@ -67,8 +67,8 @@ chunk.optimizeCameras(fit_f, fit_cx, fit_cy, fit_k1, fit_k2, fit_k3, fit_p1, fit
     
 	
 for chunk in Metashape.app.document.chunks:
-    f = Metashape.PointCloud.Filter()
-    f.init(chunk,Metashape.PointCloud.Filter.ProjectionAccuracy)
+    f = Metashape.TiePoints.Filter()
+    f.init(chunk,Metashape.TiePoints.Filter.ProjectionAccuracy)
     values = f.values.copy()
     values.sort()
     projaccper = values[int(len(values)* (1-projacc/100))]
@@ -78,8 +78,8 @@ for chunk in Metashape.app.document.chunks:
 chunk.optimizeCameras(fit_f, fit_cx, fit_cy, fit_k1, fit_k2, fit_k3, fit_p1, fit_p2)    
     
 for chunk in Metashape.app.document.chunks:
-    f = Metashape.PointCloud.Filter()
-    f.init(chunk,Metashape.PointCloud.Filter.ReprojectionError)
+    f = Metashape.TiePoints.Filter()
+    f.init(chunk,Metashape.TiePoints.Filter.ReprojectionError)
     values = f.values.copy()
     values.sort()
     reperrper = values[int(len(values)* (1-reperr/100))]
